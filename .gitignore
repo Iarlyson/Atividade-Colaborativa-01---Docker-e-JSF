@@ -1,7 +1,4 @@
 /app/.idea
 /app.iml
 /.idea
-/app/target/
-/app/maven-arquiver/*
-/app/maven/status/*
-/app/target/app.war
+/app/target/*
