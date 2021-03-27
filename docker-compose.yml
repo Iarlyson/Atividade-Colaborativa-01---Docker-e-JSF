@@ -1,0 +1,20 @@
+version: "1"
+services:
+  banco:
+    container_name: banco
+    image: atividadedac/banco
+    build: ./postgres
+    ports:
+      - "5433:5432"
+    volumes:
+      - "dbdata:/var/lib/postgresql/data"
+  app:
+    container_name: app
+    image: atividadedac/app
+    build: ./app
+    ports:
+      - "8080:8080"
+    depends_on:
+      - banco
+    links:
+      - "banco:host-banco"
