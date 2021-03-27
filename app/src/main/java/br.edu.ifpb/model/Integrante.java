@@ -1,5 +1,7 @@
 package br.edu.ifpb.model;
 
+import java.time.LocalDate;
+
 public class Integrante {
     private int id;
     private String nome;
