@@ -1,6 +1,7 @@
 package br.edu.ifpb.dao;
 
 import br.edu.ifpb.model.Banda;
+import br.edu.ifpb.model.Integrante;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -82,5 +83,6 @@ public class BandaDao{
         int id = result.getInt("id");
         return new Banda(id,localOrigim,nomeFantansia);
     }
+
 
 }

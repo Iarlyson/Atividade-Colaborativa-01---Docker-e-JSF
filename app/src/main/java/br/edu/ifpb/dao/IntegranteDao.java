@@ -1,8 +1,10 @@
 package br.edu.ifpb.dao;
 
+import br.edu.ifpb.model.Banda;
 import br.edu.ifpb.model.Integrante;
 
 import java.sql.*;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -27,10 +29,10 @@ public class IntegranteDao{
 
     public void novo(Integrante integrante) {
         try {
-        PreparedStatement statement = connection.prepareStatement("INSERT INTO integrante (nome, dataDeNascimento, cpf, ) VALUES ( ?, ?, ?)");
+            PreparedStatement statement = connection.prepareStatement("INSERT INTO integrante (nome, dataDeNascimento, cpf, ) VALUES ( ?, ?, ?)");
             statement.setString(1,integrante.getNome());
-            statement.setString(2, integrante.getdataDeNascimento());
-            statement.setString(3, integrante.getcpf());
+            statement.setString(2, integrante.getDataDeNascimento().toString());
+            statement.setString(3, integrante.getCpf());
             statement.executeUpdate();
         } catch (SQLException throwables) {
             Logger.getLogger(IntegranteDao.class.getName()).log(Level.SEVERE,null,throwables);
@@ -52,9 +54,9 @@ public class IntegranteDao{
         try {
             PreparedStatement statement = connection.prepareStatement("UPDATE integrante SET  nome = ?, dataDeNascimento = ?, cpf = ? WHERE id = ?");
             statement.setString(1,integrante.getNome());
-            statement.setString(2, integrante.getdataDeNascimento());
-            statement.setString(3, integrante.getcpf());
-            statement.setString(4, integrante.getid());
+            statement.setString(2, integrante.getDataDeNascimento().toString());
+            statement.setString(3, integrante.getCpf());
+            statement.setInt(4, integrante.getId());
             statement.executeUpdate();
         } catch (SQLException throwables) {
             Logger.getLogger(IntegranteDao.class.getName()).log(Level.SEVERE,null,throwables);
@@ -72,7 +74,7 @@ public class IntegranteDao{
             }
             return lista;
         } catch (SQLException ex) {
-//            Logger.getLogger(ClientesEmJDBC.class.getName()).log(Level.SEVERE,null,ex);
+            //            Logger.getLogger(ClientesEmJDBC.class.getName()).log(Level.SEVERE,null,ex);
             return Collections.EMPTY_LIST;
         }
     }
@@ -82,8 +84,8 @@ public class IntegranteDao{
         int id = result.getInt("id");
         String nome = result.getString("nome");
         String dataDeNascimento = result.getString("dataDeNascimento");
-        int cpf = result.getInt("cpf");
-        return new Banda(id,nome,dataDeNascimento,cpf);
+        String cpf = result.getString("cpf");
+        return new Integrante(id,nome, LocalDate.parse(dataDeNascimento),cpf);
     }
 
 }
