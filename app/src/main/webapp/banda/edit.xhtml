@@ -13,7 +13,7 @@
             <h:outputLabel for="localOrigem" value="Local Origem" />
             <h:inputText value="#{bandaController.getBanda().localDeOrigim}"
                          id="localOrigem"/>
-            <h:commandButton id="comando" styleClass="btn" value="adicionar" action=""/>
+            <h:commandButton id="comando" styleClass="btn" value="adicionar" action="#{bandaController.criarBanda()}"/>
          </h:form>
       </f:view>
 
