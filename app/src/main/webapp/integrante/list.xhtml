@@ -5,31 +5,31 @@
                 xmlns:f="http://xmlns.jcp.org/jsf/core"
                 template="../template.xhtml">
    <ui:define name="corpo">
-      <h1>Listagem de Pessoas</h1>
+      <h1>Listagem de Integrate</h1>
       <h:form>
          <h:commandLink value="nova" action="edit.xhtml?faces-redirect=true"/>
-         <h:dataTable var="pessoa" value="#{}" class="striped highlight">
+         <h:dataTable var="integrante" value="#{integranteController.listarIntegrantes()}" class="striped highlight">
             <h:column>
                <f:facet name="header">Id</f:facet>
-               #{}
+               #{integrante.id}
             </h:column>
             <h:column>
                <f:facet name="header">Nome</f:facet>
-               #{}
+               #{integrante.nome}
             </h:column>
             <h:column>
                <f:facet name="header">Data de Nascimento</f:facet>
-               #{}
+               #{integrante.dataDeNascimento}
             </h:column>
             <h:column>
                <f:facet name="header">CPF</f:facet>
-               #{}
+               #{integrante.cpf}
             </h:column>
             <h:column>
-               <h:commandButton value="x" action="" class="btn"/>
+               <h:commandButton value="x" action="#{integranteController.excluirIntegrante(integrante)}" class="btn"/>
             </h:column>
             <h:column>
-               <h:commandButton value="editar" action="" class="btn"/>
+               <h:commandButton value="editar" action="#{integranteController.editarIntegrante(integrante)}" class="btn"/>
             </h:column>
          </h:dataTable>
       </h:form>
