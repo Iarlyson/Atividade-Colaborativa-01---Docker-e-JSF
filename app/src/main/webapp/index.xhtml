@@ -1,13 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:f="http://xmlns.jcp.org/jsf/core"
-    template="template.xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:v="http://java.sun.com/jsf/core"
+                template="template.xhtml"
 >
     <ui:define name="corpo">
-        <f:view>
-            <h:outputLabel value="Hello Docker!"/>
-        </f:view>
+        <h1>Lista de bandas</h1>
+        <h:form>
+            <br />
+            <h:commandLink value="Novo Integrante" action="integrante/edit" immediate="true"/>
+            <h:commandLink value="Nova Banda" action="banda/edit" immediate="true"/>
+            <br />
+            <h:dataTable var="banda" value="#{bandaController.listarBandas()}" class="striped highlight">
+                <h:column>
+                    <f:facet name="header">Id</f:facet>
+                    #{banda.id}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Nome</f:facet>
+                    #{banda.nomeFantansia}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Local De Origem</f:facet>
+                    #{banda.localDeOrigim}
+                </h:column>
+                <h:column>
+                    <h:commandButton value="x" class="btn"/>
+                </h:column>
+                <h:column>
+                    <h:commandButton value="editar" class="btn"/>
+                </h:column>
+            </h:dataTable>
+        </h:form>
     </ui:define>
 </ui:composition>
