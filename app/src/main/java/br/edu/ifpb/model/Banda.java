@@ -10,7 +10,6 @@ public class Banda{
     private List<Integrante> integrantes;
 
     public Banda(){
-
     }
 
     public Banda(int id, String localOrigim, String nomeFantansia){
