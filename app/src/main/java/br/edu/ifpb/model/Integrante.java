@@ -6,13 +6,17 @@ public class Integrante {
     private int id;
     private String nome;
     private LocalDate dataDeNascimento;
-    private String cpf;
+    private CPF cpf;
+
+    public Integrante(){
+
+    }
 
     public Integrante(int id, String nome, LocalDate dataDeNascimento, String cpf) {
         this.id = id;
         this.nome = nome;
         this.dataDeNascimento = dataDeNascimento;
-        this.cpf = cpf;
+        this.cpf = new CPF (cpf);
     }
 
     public int getId() {
@@ -39,11 +43,11 @@ public class Integrante {
         this.dataDeNascimento = dataDeNascimento;
     }
 
-    public String getCpf() {
+    public CPF getCpf() {
         return cpf;
     }
 
-    public void setCpf(String cpf) {
+    public void setCpf(CPF cpf) {
         this.cpf = cpf;
     }
 }
