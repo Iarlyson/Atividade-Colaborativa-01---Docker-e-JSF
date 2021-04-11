@@ -14,18 +14,26 @@ public class IntegranteController implements Serializable {
 
     private Integrante integrante = new Integrante();
 
-//    private List<Banda> bandas = new ArrayList<Banda>();
-
     private IntegranteDao integranteDao = new IntegranteDao();
 
     public void criarIntegrante(){
         integranteDao.novo(integrante);
     }
 
+    public void excluirIntegrante(){
+        integranteDao.excluir(integrante);
+    }
+
     public List<Integrante> listarIntegrantes(){
         return integranteDao.listar();
     }
-
+    public void editarIntegrante(){
+        integranteDao.editar(integrante);
+    }
+    public List<Integrante> listarIntegrantes(){
+        return integranteDao.listar();
+    }
+  
     public Integrante getIntegrante() {
         return integrante;
     }
