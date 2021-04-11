@@ -32,7 +32,7 @@ public class IntegranteDao{
             PreparedStatement statement = connection.prepareStatement("INSERT INTO integrante (nome, dataDeNascimento, cpf, ) VALUES ( ?, ?, ?)");
             statement.setString(1,integrante.getNome());
             statement.setString(2, integrante.getDataDeNascimento().toString());
-            statement.setString(3, integrante.getCpf());
+            statement.setString(3, integrante.getCpf().formatadoString());
             statement.executeUpdate();
         } catch (SQLException throwables) {
             Logger.getLogger(IntegranteDao.class.getName()).log(Level.SEVERE,null,throwables);
@@ -55,7 +55,7 @@ public class IntegranteDao{
             PreparedStatement statement = connection.prepareStatement("UPDATE integrante SET  nome = ?, dataDeNascimento = ?, cpf = ? WHERE id = ?");
             statement.setString(1,integrante.getNome());
             statement.setString(2, integrante.getDataDeNascimento().toString());
-            statement.setString(3, integrante.getCpf());
+            statement.setString(3, integrante.getCpf().formatadoString());
             statement.setInt(4, integrante.getId());
             statement.executeUpdate();
         } catch (SQLException throwables) {

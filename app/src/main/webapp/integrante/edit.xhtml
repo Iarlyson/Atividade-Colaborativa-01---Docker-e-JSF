@@ -1,0 +1,26 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      template="../template.xhtml">
+    <ui:define name="corpo">
+        <h1 class="header center orange-text">Cadastro de Integrante </h1>
+        <h:form>
+           <h:messages layout="list"/>
+            <h:outputLabel for="nome" value="Nome" />
+            <h:inputText value=""
+                         id="nome"/>
+            <h:outputLabel for="data" value="Data" />
+            <h:inputText value=""
+                         id="data"/>
+            <h:outputLabel for="cpf" value="CPF" />
+            <h:inputText value=""
+                         converter=""
+                         validator=""
+                         id="cpf"/>
+            <h:message for="cpf" />
+            <h:commandButton id="comando" styleClass="btn" value="adicionar" action=""/>
+            <h:commandLink id="comando-link" value="lista" action="list" immediate="true"/>
+        </h:form>
+    </ui:define>
+</ui:composition>
