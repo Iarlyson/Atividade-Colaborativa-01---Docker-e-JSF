@@ -30,9 +30,6 @@ public class IntegranteController implements Serializable {
     public void editarIntegrante(){
         integranteDao.editar(integrante);
     }
-    public List<Integrante> listarIntegrantes(){
-        return integranteDao.listar();
-    }
   
     public Integrante getIntegrante() {
         return integrante;
