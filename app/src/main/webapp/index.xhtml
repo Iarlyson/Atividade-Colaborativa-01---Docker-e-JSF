@@ -5,7 +5,9 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core"
     template="template.xhtml"
 >
-<f:view>
-    <h:outputLabel value="Hello Docker!"/>
-</f:view>
+    <ui:define name="corpo">
+        <f:view>
+            <h:outputLabel value="Hello Docker!"/>
+        </f:view>
+    </ui:define>
 </ui:composition>
