@@ -6,20 +6,19 @@
     <ui:define name="corpo">
         <h1 class="header center orange-text">Cadastro de Integrante </h1>
         <h:form>
-           <h:messages layout="list"/>
             <h:outputLabel for="nome" value="Nome" />
-            <h:inputText value=""
+            <h:inputText value="#{integranteController.getIntegrante().nome}"
                          id="nome"/>
             <h:outputLabel for="data" value="Data" />
-            <h:inputText value=""
+            <h:inputText value="#{integranteController.getIntegrante().dataDeNascimento}"
+                         converter="conversor.data"
                          id="data"/>
             <h:outputLabel for="cpf" value="CPF" />
-            <h:inputText value=""
-                         converter=""
-                         validator=""
+            <h:inputText value="#{integranteController.getIntegrante().cpf}"
+                         converter="conversor.cpf"
                          id="cpf"/>
             <h:message for="cpf" />
-            <h:commandButton id="comando" styleClass="btn" value="adicionar" action=""/>
+            <h:commandButton id="comando" styleClass="btn" value="adicionar" action="#{integranteController.criarIntegrante()}"/>
             <h:commandLink id="comando-link" value="lista" action="list" immediate="true"/>
         </h:form>
     </ui:define>
